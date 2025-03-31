@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaHotel, FaBed, FaConciergeBell, FaPhoneAlt, FaMap } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaHotel, FaBed, FaPhoneAlt, FaMap } from "react-icons/fa";
 import { IoIosMail, IoMdContact } from "react-icons/io";
 import { MdOutlineRoomService } from "react-icons/md";
 import Logo from '../assets/img/logo.jpg'

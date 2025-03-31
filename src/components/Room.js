@@ -1,7 +1,7 @@
 import React from 'react';
 
 //link
-import {Link, link} from 'react-router-dom';
+import {Link,} from 'react-router-dom';
 
 // icons
 import{BsArrowsFullscreen, BsPeople}from'react-icons/bs';

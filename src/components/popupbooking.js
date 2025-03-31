@@ -1,6 +1,6 @@
 import { useBooking } from "../components/BookingContext";
 import { useState } from "react";
-import { createPortal } from "react-dom"; // Portal for modal popup
+import { createPortal } from "react-dom"; 
 
 export default function BookingSection() {
   const { isOpen, setIsOpen } = useBooking();

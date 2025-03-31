@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import React, { useState, useMemo } from "react";
-import { FaBed, FaHotel, FaShower, FaWifi, FaParking, FaMapMarkerAlt, FaCalendarAlt, FaUser, FaChild, FaTimes, FaQuoteLeft, FaCoffee, FaBriefcase, FaSnowflake, FaDoorClosed, FaDoorOpen, FaUserCircle, FaMobile, FaVoicemail, FaEnvelope } from "react-icons/fa";
+import { FaBed, FaShower, FaWifi, FaParking, FaMapMarkerAlt, FaUser, FaTimes, FaQuoteLeft, FaCoffee, FaBriefcase, FaSnowflake, FaDoorClosed, FaDoorOpen, FaUserCircle, } from "react-icons/fa";
 import { motion } from "framer-motion";
 import room1 from "../assets/img/rooms/1.jpg";
 import room2 from "../assets/img/rooms/1dt1.jpg";
