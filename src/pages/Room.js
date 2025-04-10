@@ -11,6 +11,8 @@ import room2 from "../assets/img/rooms/1dt1.jpg";
 import room3 from "../assets/img/rooms/2dts.jpg";
 
 import Roomimg from '../assets/img/room-baner.jpg';
+import { Helmet } from "react-helmet";
+
 
 export default function RoomShowcase() {
     const [openFAQ, setOpenFAQ] = useState(null);
@@ -39,17 +41,17 @@ export default function RoomShowcase() {
 
         { id: 4, name: "Family Suite Room", image: room3, occupancy: "Single", facilities: ["Breakfast", "Free Parking", "AC"], price: "₹3,000 / Night (Excl GST)" },
 
-        { id: 5, name: "Family Suite Room", image: room1, occupancy: "Double", facilities: ["Free Wifi", "Cozy Bed", "AC"], price: "₹3,250 / Night (Excl GST)"},
+        { id: 5, name: "Family Suite Room", image: room1, occupancy: "Double", facilities: ["Free Wifi", "Cozy Bed", "AC"], price: "₹3,250 / Night (Excl GST)" },
 
         { id: 6, name: "Family Suite Room", image: room2, occupancy: "Triple", facilities: ["Work Desk", "24/7 Service", "AC"], price: "₹3,500 / Night (Excl GST)" },
 
         { id: 7, name: "Family Suite Room", image: room2, occupancy: "Triple + Extra Person", facilities: ["Work Desk", "24/7 Service", "AC"], price: "₹4,050 / Night (Excl GST)" },
 
-        { id: 8, name: "Family Suite (Connecting Room )", image: room3, occupancy: "Family & Friends", facilities: ["Breakfast", "Free Parking", "AC"],  price: "Contact for tarrif" },
-        
+        { id: 8, name: "Family Suite (Connecting Room )", image: room3, occupancy: "Family & Friends", facilities: ["Breakfast", "Free Parking", "AC"], price: "Contact for tarrif" },
+
     ];
 
-    
+
 
     const facilities = [
         { icon: FaWifi, label: "Free WiFi" },
@@ -78,6 +80,10 @@ export default function RoomShowcase() {
 
     return (
         <div className="bg-white text-[#361617] font-sans mt-16">
+            <Helmet>
+                <title>Rooms - Hotel Harikrishna Park</title>
+                <meta name="description" content="Discover our comfortable and well-equipped rooms, perfect for families, travelers, and business guests in Coimbatore." />
+            </Helmet>
             {/* Hero Section */}
             <section className="relative h-[40vh] bg-no-repeat bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: `url(${Roomimg})` }}>
                 <h1 className="text-4xl font-bold text-white">Our Rooms</h1>

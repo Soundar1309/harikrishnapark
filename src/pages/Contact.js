@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { motion, AnimatePresence  } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaEnvelope, FaMobile, FaMapMarkerAlt, FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 import Contact from '../assets/img/contact-us.jpg';
+import { Helmet } from "react-helmet";
+
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
@@ -31,6 +33,11 @@ export default function ContactUs() {
 
   return (
     <div className="bg-white text-[#361617] font-sans mt-16 w-full overflow-x-hidden">
+      
+      <Helmet>
+        <title>Contact Us - Hotel Harikrishna Park</title>
+        <meta name="description" content="Get in touch with Hotel Harikrishna Park in Coimbatore for bookings, inquiries, or directions." />
+      </Helmet>
 
       {/* Hero Section */}
       <section className="relative h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[60vh] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: `url(${Contact})` }}>
@@ -65,7 +72,7 @@ export default function ContactUs() {
               <div className="mt-4 sm:mt-6 space-y-4 sm:space-y-6">
                 <div className="flex items-start gap-3 sm:gap-4">
                   <FaMapMarkerAlt className="text-xl sm:text-2xl text-[#361617] mt-1" />
-                  <p className="text-sm sm:text-base">OPP.GOVT GIRLS HIGH SCHOOL, WATER TANK ROAD, NEW SIDDAPUDHUR, CBE- 44.</p>
+                  <p className="text-sm sm:text-base">OPP.GOVT GIRLS HIGH SCHOOL, WATER TANK ROAD, NEW SIDDAPUDHUR, Coimbatore - 44 , Tamil Nadu, India.</p>
                 </div>
                 <div className="flex items-start gap-3 sm:gap-4">
                   <FaMobile className="text-xl sm:text-2xl text-[#361617] mt-1" />
@@ -185,9 +192,8 @@ export default function ContactUs() {
               <div className="flex justify-between items-center">
                 <h3 className="text-base sm:text-lg font-semibold pr-4">{faq.question}</h3>
                 <IoIosArrowDown
-                  className={`text-lg sm:text-xl flex-shrink-0 transition-transform ${
-                    openFAQ === index ? "rotate-180" : "rotate-0"
-                  }`}
+                  className={`text-lg sm:text-xl flex-shrink-0 transition-transform ${openFAQ === index ? "rotate-180" : "rotate-0"
+                    }`}
                 />
               </div>
 

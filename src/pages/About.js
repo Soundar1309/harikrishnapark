@@ -13,9 +13,9 @@ import {
 import Aboutus from "../assets/img/about-banner.jpg";
 import Aboutdetails from "../assets/img/about-us2.jpg";
 import Mission from "../assets/img/mission.jpg";
-import Vision from "../assets/img/vission.jpg";
 import FounderImage from '../assets/img/Founder.jpg'
 import { title } from "framer-motion/client";
+import { Helmet } from "react-helmet";
 
 const services = [
     { icon: FaWifi, title: "Free Wi-Fi" },
@@ -25,19 +25,17 @@ const services = [
     { icon: FaSnowflake, title: "Air Conditioner" },
     { icon: FaBed, title: "Cozy Rooms" },
     { icon: FaCoffee, title: "Tea & Coffee Maker" },
-     { icon: FaBriefcase, title: "Work Desk" },
-];
-
-const teamMembers = [
-    { name: "John Doe", role: "Manager", image: "/team1.jpg" },
-    { name: "Jane Smith", role: "Receptionist", image: "/team2.jpg" },
-    { name: "Mark Taylor", role: "Chef", image: "/team3.jpg" },
-    { name: "Emily Johnson", role: "Housekeeping", image: "/team4.jpg" },
+    { icon: FaBriefcase, title: "Work Desk" },
 ];
 
 export default function About() {
     return (
         <div className="bg-white text-gray-800 font-sans mt-16">
+            <Helmet>
+                <title>About Us - Hotel Harikrishna Park</title>
+                <meta name="description" content="Learn about Hotel Harikrishna Park's story, vision, mission, and what makes us a home away from home in Coimbatore." />
+            </Helmet>
+
             {/* Hero Section */}
             <section
                 className="relative h-[350px] bg-cover bg-center text-center flex items-center justify-center text-white"
@@ -60,7 +58,7 @@ export default function About() {
                         Trusted Care, Compassionate Service
                     </h2>
                     <p className="mt-4 text-lg text-[#361617] text-justify font-secondary">
-                        Welcome to Harikrishna Park Hotel, where every stay is an experience in comfort, convenience, and care. Located in the heart of Coimbatore, our hotel offers the perfect blend of modern amenities and a homely atmosphere to make your visit memorable.We are a 2-star hotel committed to providing excellent service for both business and leisure travelers. Whether you're here for an important business trip, a family getaway, or a special event, our aim is to make your stay as comfortable and convenient as possible.
+                        Welcome to Hotel Harikrishna Park, where every stay is an experience in comfort, convenience, and care. Located in the heart of Coimbatore, our hotel offers the perfect blend of modern amenities and a homely atmosphere to make your visit memorable.We are a 2-star hotel committed to providing excellent service for both business and leisure travelers. Whether you're here for an important business trip, a family getaway, or a special event, our aim is to make your stay as comfortable and convenient as possible.
                     </p>
                 </div>
             </section>
@@ -138,12 +136,12 @@ export default function About() {
                     >
                         <h3 className="text-3xl font-bold text-[#361617] font-primary text-center md:text-left">Message from the Founder</h3>
                         <p className="mt-4 text-lg text-[#361617] text-justify font-secondary">
-                            Welcome to Harikrishna Park Hotel! I am honored to be able to share our passion for hospitality and commitment to offering exceptional service to all our guests. My vision for this hotel has always been to create a place where everyone feels at home—whether you're here for business, leisure, or a special event, our goal is to make your stay memorable.
+                            Welcome to Hotel Harikrishna Park! I am honored to be able to share our passion for hospitality and commitment to offering exceptional service to all our guests. My vision for this hotel has always been to create a place where everyone feels at home—whether you're here for business, leisure, or a special event, our goal is to make your stay memorable.
                             <br />
                             From the beginning, we’ve always focused on maintaining the highest standards of comfort, convenience, and hospitality. Our team is dedicated to making sure that every guest enjoys a unique and personalized experience that exceeds expectations.
                             <br />
                             <br />
-                            Thank you for choosing Harikrishna Park Hotel. We look forward to welcoming you and ensuring that your time with us is truly unforgettable.
+                            Thank you for choosing Hotel Harikrishna Park. We look forward to welcoming you and ensuring that your time with us is truly unforgettable.
                         </p>
                     </motion.div>
                 </div>

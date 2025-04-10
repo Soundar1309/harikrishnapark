@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import room1 from "../assets/img/rooms/1.jpg";
 import room2 from "../assets/img/rooms/1dt1.jpg";
 import room3 from "../assets/img/2dts.jpg";
+import { Helmet } from "react-helmet";
+import { useBooking } from "../components/BookingContext";
+
 
 const rooms = [
   {
@@ -172,7 +175,7 @@ const testimonials = [
   { name: "SAJEESH KV", review: "Good spacious rooms and well maintained.", roomId: 2 },
   { name: "Bala chandar", review: "Property was clean and well maintained. Staffs are very friendly. Highly recommend the stay here.", roomId: 3 },
   { name: "Sharmadha Gautam", review: "Best place to stay .. It is a new hotel with comfortable , spacious and with a luxurious looks..very cleanly maintained and excellent service..very quite calming place in the centre of the city close to gandhipuram bus stand just 1 km away.", roomId: 4 },
-  { name: "Soundar Rajan", review: "I had a great experience at Harikrishna Park Hotel. The ambience is excellent, and the luxury rooms provide a comfortable stay. I chose this hotel for my business trip, and they offered a fair price, which I truly appreciated.", roomId: 5 },
+  { name: "Soundar Rajan", review: "I had a great experience at Hotel Harikrishna Park. The ambience is excellent, and the luxury rooms provide a comfortable stay. I chose this hotel for my business trip, and they offered a fair price, which I truly appreciated.", roomId: 5 },
   { name: "Anushree Creation", review: "I had my business trip to coimbatore and me my staff's stayed here in this hotel. Very nice and safe for all type of travelers. Staffing and even Owner is very friendly with great hospitality.", roomId: 6 },
   { name: "Anushree Creation", review: "I had my business trip to coimbatore and me my staff's stayed here in this hotel. Very nice and safe for all type of travelers. Staffing and even Owner is very friendly with great hospitality.", roomId: 6 },
   { name: "Ram Krishna", review: "Room was spacious for a family . Service was good. Located very near to Gandipuram main bus station. Breakfast was good. Nice stay with affordable price.", roomId: 5 },
@@ -260,103 +263,27 @@ export default function RoomDetail() {
   const { id } = useParams();
   const room = useMemo(() => rooms.find((r) => r.id === id.toString()), [id]);
   const [fullscreenImage, setFullscreenImage] = useState(null);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    mobile: '',
-    checkin: '',
-    checkout: '',
-    adults: '1',
-    kids: '0'
-  });
-  const [errors, setErrors] = useState({});
-  const [showThankYou, setShowThankYou] = useState(false);
+  const { setIsOpen } = useBooking();
+
+  const handleReserveClick = () => {
+    setIsOpen(true);
+  };
 
   const roomTestimonials = useMemo(() => testimonials.filter((t) => t.roomId === Number(room?.id)), [room]);
   const roomFaqs = useMemo(() => faqs.filter((f) => f.roomId === Number(room?.id)), [room]);
-
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [id]: value
-    }));
-    // Clear error when user starts typing
-    if (errors[id]) {
-      setErrors(prev => ({
-        ...prev,
-        [id]: ''
-      }));
-    }
-  };
-
-  const validateForm = () => {
-    const newErrors = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Invalid email format';
-    }
-
-    if (!formData.mobile.trim()) {
-      newErrors.mobile = 'Mobile number is required';
-    } else if (!/^\d{10}$/.test(formData.mobile)) {
-      newErrors.mobile = 'Invalid mobile number';
-    }
-
-    if (!formData.checkin) {
-      newErrors.checkin = 'Check-in date is required';
-    }
-
-    if (!formData.checkout) {
-      newErrors.checkout = 'Check-out date is required';
-    } else if (new Date(formData.checkout) <= new Date(formData.checkin)) {
-      newErrors.checkout = 'Check-out date must be after check-in date';
-    }
-
-    if (!formData.adults || formData.adults < 1) {
-      newErrors.adults = 'At least 1 adult is required';
-    }
-
-    if (formData.kids < 0) {
-      newErrors.kids = 'Number of kids cannot be negative';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validateForm()) {
-      // Show thank you message
-      setShowThankYou(true);
-
-      // Hide thank you message and reset form after 3 seconds
-      setTimeout(() => {
-        setShowThankYou(false);
-        setFormData({
-          name: '',
-          email: '',
-          mobile: '',
-          checkin: '',
-          checkout: '',
-          adults: '1',
-          kids: '0'
-        });
-      }, 3000);
-    }
-  };
 
   if (!room) return <h2 className="text-center mt-10">Room not found</h2>;
 
   return (
     <div>
+      <Helmet>
+        <title>{room.name} - Hotel Harikrishna Park</title>
+        <meta
+          name="description"
+          content={`Stay in the ${room.name} at Hotel Harikrishna Park. ${room.description.slice(0, 150)}...`}
+        />
+      </Helmet>
+
       {/* Fullscreen Image Viewer */}
       {fullscreenImage && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50" onClick={() => setFullscreenImage(null)}>
@@ -400,130 +327,21 @@ export default function RoomDetail() {
         </div>
 
         {/* Booking Form - Right Side */}
-        <div className="w-full lg:w-1/3 bg-gray-100 p-6 rounded-lg shadow-lg h-fit">
-          <h3 className="text-lg font-bold mb-3">Book Your Stay</h3>
-          {showThankYou ? (
-            <div className="text-center py-8">
-              <h3 className="text-2xl font-semibold text-green-600 mb-4">Thank You!</h3>
-              <p className="text-gray-600">Your booking request has been received. We'll contact you shortly.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              <div className="space-y-4">
-                <div className="grid grid-cols-1 gap-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
-                    <input
-                      type="text"
-                      id="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Enter your name"
-                      className={`w-full p-2 border rounded text-sm ${errors.name ? 'border-red-500' : ''}`}
-                    />
-                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="Enter your email"
-                      className={`w-full p-2 border rounded text-sm ${errors.email ? 'border-red-500' : ''}`}
-                    />
-                    {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
-                  </div>
-                </div>
+        <div className="w-full lg:w-1/3 bg-white p-6 rounded-2xl shadow-xl h-fit border border-gray-200">
+          <h3 className="text-xl font-bold text-[#361617] mb-4">Book Your Stay</h3>
 
-                <div>
-                  <label htmlFor="mobile" className="block text-sm font-medium text-gray-700">Mobile Number</label>
-                  <input
-                    type="tel"
-                    id="mobile"
-                    value={formData.mobile}
-                    onChange={handleChange}
-                    placeholder="Enter mobile number"
-                    className={`w-full p-2 border rounded text-sm ${errors.mobile ? 'border-red-500' : ''}`}
-                  />
-                  {errors.mobile && <p className="text-red-500 text-xs mt-1">{errors.mobile}</p>}
-                </div>
+          <p className="text-gray-700 text-sm mb-6">
+            Planning your stay at Harikrishna Park Hotel? Click the button below to book your room.
+          </p>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="checkin" className="block text-sm font-medium text-gray-700">Check-in</label>
-                    <input
-                      type="date"
-                      id="checkin"
-                      value={formData.checkin}
-                      onChange={handleChange}
-                      min={new Date().toISOString().split('T')[0]}
-                      className={`w-full p-2 border rounded text-sm ${errors.checkin ? 'border-red-500' : ''}`}
-                    />
-                    {errors.checkin && <p className="text-red-500 text-xs mt-1">{errors.checkin}</p>}
-                  </div>
-                  <div>
-                    <label htmlFor="checkout" className="block text-sm font-medium text-gray-700">Check-out</label>
-                    <input
-                      type="date"
-                      id="checkout"
-                      value={formData.checkout}
-                      onChange={handleChange}
-                      min={new Date().toISOString().split('T')[0]}
-                      className={`w-full p-2 border rounded text-sm ${errors.checkout ? 'border-red-500' : ''}`}
-                    />
-                    {errors.checkout && <p className="text-red-500 text-xs mt-1">{errors.checkout}</p>}
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="adults" className="block text-sm font-medium text-gray-700">Number of Adults</label>
-                    <input
-                      type="number"
-                      id="adults"
-                      value={formData.adults}
-                      onChange={handleChange}
-                      placeholder="Adults"
-                      min="1"
-                      max="4"
-                      className={`w-full p-2 border rounded text-sm ${errors.adults ? 'border-red-500' : ''}`}
-                    />
-                    {errors.adults && <p className="text-red-500 text-xs mt-1">{errors.adults}</p>}
-                  </div>
-                  <div>
-                    <label htmlFor="kids" className="block text-sm font-medium text-gray-700">Number of Kids</label>
-                    <input
-                      type="number"
-                      id="kids"
-                      value={formData.kids}
-                      onChange={handleChange}
-                      min="0"
-                      max="2"
-                      placeholder="Enter number of kids"
-                      className={`w-full p-2 border rounded text-sm ${errors.kids ? 'border-red-500' : ''}`}
-                    />
-                    {errors.kids && <p className="text-red-500 text-xs mt-1">{errors.kids}</p>}
-                  </div>
-                </div>
-              </div>
-              {showThankYou ? (
-                <div className="text-center py-4">
-                  <h3 className="text-2xl font-semibold text-green-600 mb-2">Thank You!</h3>
-                  <p className="text-gray-600">Your booking request has been received. We'll contact you shortly.</p>
-                </div>
-              ) : (
-                <button
-                  type="submit"
-                  className="w-full bg-[#361617] text-white py-2 rounded hover:bg-[#552c14] mt-2"
-                >
-                  Submit
-                </button>
-              )}
-            </form>
-          )}
+          <button
+            onClick={handleReserveClick}
+            className="hidden md:block w-full bg-[#361617] text-[#f8d09c] px-3 xs:px-4 sm:px-6 py-2 xs:py-2.5 sm:py-3 rounded-lg hover:text-[#361617] hover:bg-[#f8d09c] transition text-sm xs:text-base lg:text-lg"
+          >
+            Reserve Now
+          </button>
         </div>
+
       </div>
 
       {/* Testimonials */}

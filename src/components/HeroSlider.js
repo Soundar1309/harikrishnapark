@@ -13,11 +13,13 @@ import {
 import Aboutus from "../assets/img/about-us.jpg";
 import Hero from "../assets/img/room.jpg";
 import { useBooking } from "../components/BookingContext";
-import BookingSection from "../components/popupbooking";
+import BookingSection from "../components/PopupBooking";
 
 import room1 from "../assets/img/rooms/1.jpg";
 import room2 from "../assets/img/rooms/1dt1.jpg";
 import room3 from "../assets/img/rooms/2dts.jpg";
+
+import { Helmet } from "react-helmet";
 
 const rooms = [
   {
@@ -60,15 +62,13 @@ const facilities = [
 export default function Home() {
   const { setIsOpen } = useBooking();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [booking, setBooking] = useState({
-    checkIn: "",
-    checkOut: "",
-    guests: 1,
-    roomType: "Deluxe Room",
-  });
 
   return (
     <div className="bg-white text-[#361617] font-sans mt-16 w-full overflow-x-hidden">
+      <Helmet>
+        <title>Home - Hotel Harikrishna Park</title>
+        <meta name="description" content="Welcome to Hotel Harikrishna Park in Coimbatore." />
+      </Helmet>
       {/* Hero Section */}
       <section
         className="relative min-h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] flex items-center justify-center bg-cover bg-center px-4 sm:px-6 md:px-10"
@@ -84,8 +84,16 @@ export default function Home() {
             animate={{ y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            Experience Luxury & Comfort
+            Welcome to Hotel Harikrishna Park
           </motion.h1>
+          <motion.h4
+            className="text-lg mb-4 sm:text-3xl md:text-4xl lg:text-3xl font-bold mt-4"
+            initial={{ y: -20 }}
+            animate={{ y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            Experience Luxury & Comfort
+          </motion.h4>
           <motion.p
             className="text-base sm:text-lg mt-3 px-4"
             initial={{ opacity: 0 }}
@@ -95,14 +103,14 @@ export default function Home() {
             A home away from home – Unparalleled hospitality, cozy rooms, and
             top-notch services.
           </motion.p>
-     
+
           {/* Reserve Button */}
           <motion.button
             onClick={() => {
               setIsOpen(true);
               setMenuOpen(false);
             }}
-            className="mt-6 px-4 sm:px-6 py-2 sm:py-3 bg-[#f8d09c] text-black font-semibold rounded-lg shadow-lg hover:bg-[#361617] hover:text-white transition-all duration-300 ease-in-out transform hover:scale-105 text-sm sm:text-base"
+            className="mt-4 px-4 sm:px-6 py-2 sm:py-3 bg-[#f8d09c] text-black font-semibold rounded-lg shadow-lg hover:bg-[#361617] hover:text-white transition-all duration-300 ease-in-out transform hover:scale-105 text-sm sm:text-base"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.1, rotate: 2 }}
@@ -133,9 +141,9 @@ export default function Home() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <h2 className="text-2xl sm:text-3xl font-bold">About Harikrishna Park Hotel</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold">About Hotel Harikrishna Park</h2>
           <p className="mt-3 text-gray-700 text-justify text-sm sm:text-base">
-            At Harikrishna Park Hotel, we believe that a hotel stay should be
+            At Hotel Harikrishna Park, we believe that a hotel stay should be
             more than just a place to rest—it should be an experience of warmth,
             relaxation, and convenience. Established with a passion for
             hospitality, our hotel is designed to cater to all travelers, from
