@@ -333,10 +333,9 @@ export default function RoomDetail() {
           <p className="text-gray-700 text-sm mb-6">
             Planning your stay at Harikrishna Park Hotel? Click the button below to book your room.
           </p>
-
           <button
             onClick={handleReserveClick}
-            className="hidden md:block w-full bg-[#361617] text-[#f8d09c] px-3 xs:px-4 sm:px-6 py-2 xs:py-2.5 sm:py-3 rounded-lg hover:text-[#361617] hover:bg-[#f8d09c] transition text-sm xs:text-base lg:text-lg"
+            className="w-full bg-[#361617] text-[#f8d09c] px-3 py-2 rounded-lg hover:text-[#361617] hover:bg-[#f8d09c] transition text-base"
           >
             Reserve Now
           </button>
