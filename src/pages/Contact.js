@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaEnvelope, FaMobile, FaMapMarkerAlt, FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 import Contact from '../assets/img/contact-us.jpg';
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet";  
+import HotelSchema from "../components/HotelSchema";
 
 
 export default function ContactUs() {
@@ -32,11 +33,14 @@ export default function ContactUs() {
   ];
 
   return (
+    <>
+    <HotelSchema />
     <div className="bg-white text-[#361617] font-sans mt-16 w-full overflow-x-hidden">
       
+
       <Helmet>
-        <title>Contact Us - Hotel Harikrishna Park</title>
-        <meta name="description" content="Get in touch with Hotel Harikrishna Park in Coimbatore for bookings, inquiries, or directions." />
+        <title>Hotel Harikrishna Park, Best Hotel in Gandhipuram, Coimbatore – Contact</title>
+        <meta name="description" content="Get in touch with Hotel Harikrishna Park, located in the heart of Gandhipuram, Coimbatore. Contact us for booking." />
       </Helmet>
 
       {/* Hero Section */}
@@ -215,5 +219,6 @@ export default function ContactUs() {
         </div>
       </section>
     </div>
+    </>
   );
 }

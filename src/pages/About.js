@@ -32,8 +32,8 @@ export default function About() {
     return (
         <div className="bg-white text-gray-800 font-sans mt-16">
             <Helmet>
-                <title>About Us - Hotel Harikrishna Park</title>
-                <meta name="description" content="Learn about Hotel Harikrishna Park's story, vision, mission, and what makes us a home away from home in Coimbatore." />
+                <title>Harikrishna Park Best 2 Star Hotel in Coimbatore – About Us </title>
+                <meta name="description" content="Welcome to Hotel Harikrishna Park best 2 star hotel in Coimbatore, where every stay is an experience in comfort, convenience, and care." />
             </Helmet>
 
             {/* Hero Section */}
@@ -179,9 +179,9 @@ export default function About() {
                 <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 mt-8 font-secondary">
                     {[
                         { label: "Guests Hosted", count: "5k+" },
-                        { label: "Rooms Booked", count: "10k+" },
+                        { label: "Rooms Booked", count: "15k+" },
                         { label: "Positive Reviews", count: "98%" },
-                        { label: "Repeat Guests", count: "60%" },
+                        { label: "Repeat Guests", count: "75%" },
                     ].map((stat, index) => (
                         <motion.div
                             key={index}

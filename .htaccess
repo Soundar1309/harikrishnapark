@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteBase /
+
+# Serve existing files and folders as is
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Let /thank-you be handled by React Router
+RewriteRule ^thank-you$ /index.html [L]
+
+# All other routes go to index.html
+RewriteRule ^ index.html [L]

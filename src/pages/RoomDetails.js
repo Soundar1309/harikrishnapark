@@ -6,12 +6,13 @@ import room1 from "../assets/img/rooms/1.jpg";
 import room2 from "../assets/img/rooms/1dt1.jpg";
 import room3 from "../assets/img/2dts.jpg";
 import { Helmet } from "react-helmet";
-import { useBooking } from "../components/BookingContext";
+import { useBooking } from "../components/BookingContext";  
+import HotelSchema from "../components/HotelSchema";
 
 
 const rooms = [
   {
-    id: "1",
+    id: "executive-economy-deluxe-room-single",
     name: "Executive Economy (Deluxe Room)",
     image: room1,
     images: [room2, room3],
@@ -29,7 +30,7 @@ const rooms = [
     extraPersons: "-"
   },
   {
-    id: "2",
+    id: "executive-economy-deluxe-room-double",
     name: "Executive Economy (Deluxe Room)",
     image: room1,
     images: [room2, room3],
@@ -47,7 +48,7 @@ const rooms = [
     extraPersons: "-"
   },
   {
-    id: "3",
+    id: "executive-economy-deluxe-room-double-extra-person",
     name: "Executive Economy (Deluxe Room)",
     image: room1,
     images: [room2, room3],
@@ -65,7 +66,7 @@ const rooms = [
     extraPersons: "Rs.550 (Excl. GST)"
   },
   {
-    id: "4",
+    id: "family-suite-room-single",
     name: "Family Suite Room",
     image: room2,
     images: [room1, room3],
@@ -83,7 +84,7 @@ const rooms = [
     extraPersons: "-"
   },
   {
-    id: "5",
+    id: "family-suite-room-double",
     name: "Family Suite Room - Double Occupancy",
     image: room2,
     images: [room1, room3],
@@ -101,7 +102,7 @@ const rooms = [
     extraPersons: "-"
   },
   {
-    id: "6",
+    id: "family-suite-room-triple",
     name: "Family Suite Room - Triple Occupancy",
     image: room2,
     images: [room1, room3],
@@ -119,7 +120,7 @@ const rooms = [
     extraPersons: "-"
   },
   {
-    id: "7",
+    id: "family-suite-room-triple-extra-person",
     name: "Family Suite Room",
     image: room2,
     images: [room1, room3],
@@ -137,7 +138,7 @@ const rooms = [
     extraPersons: "Rs.550 (Excl. GST)"
   },
   {
-    id: "8",
+    id: "family-suite-connecting-room",
     name: "Family Suite (Connecting Room )",
     image: room3,
     images: [room1, room2],
@@ -162,100 +163,100 @@ const rooms = [
 ];
 
 const testimonials = [
-  { name: "Anushree Creation", review: "I had my business trip to coimbatore and me my staff's stayed here in this hotel. Very nice and safe for all type of travelers. Staffing and even Owner is very friendly with great hospitality.", roomId: 1 },
-  { name: "Ram Krishna", review: "Room was spacious for a family . Service was good. Located very near to Gandipuram main bus station. Breakfast was good. Nice stay with affordable price.", roomId: 2 },
-  { name: "Ravi", review: "Very nice and clean hotel, a best place to stay with family. Nice staffing and value for what we pay.", roomId: 3 },
-  { name: "Sahupramodkumar Sipu", review: "Very nice properly, well maintained, nice location.good staff.I enjoyed my stay here thanks.", roomId: 1 },
-  { name: "Joseph Paul", review: "Very nice property and good service by the hotel staff. Friendly atmosphere", roomId: 4 },
-  { name: "Roshan Dabbi", review: "I stayed 2 days .The stay was very quite and lavish.They were maintained rooms very clean and neat .The stay was worthy and comfortable.", roomId: 5 },
-  { name: "Sahupramodkumar Sipu", review: "Very nice properly, well maintained, nice location.good staff.I enjoyed my stay here thanks.", roomId: 7 },
-  { name: "Joseph Paul", review: "Very nice property and good service by the hotel staff. Friendly atmosphere", roomId: 7 },
-  { name: "Roshan Dabbi", review: "I stayed 2 days .The stay was very quite and lavish.They were maintained rooms very clean and neat .The stay was worthy and comfortable.", roomId: 7 },
-  { name: "Vijay Seenivasan", review: "Fantastic place to stay and staffs are very comfortable and supportive.", roomId: 6 },
-  { name: "SAJEESH KV", review: "Good spacious rooms and well maintained.", roomId: 2 },
-  { name: "Bala chandar", review: "Property was clean and well maintained. Staffs are very friendly. Highly recommend the stay here.", roomId: 3 },
-  { name: "Sharmadha Gautam", review: "Best place to stay .. It is a new hotel with comfortable , spacious and with a luxurious looks..very cleanly maintained and excellent service..very quite calming place in the centre of the city close to gandhipuram bus stand just 1 km away.", roomId: 4 },
-  { name: "Soundar Rajan", review: "I had a great experience at Hotel Harikrishna Park. The ambience is excellent, and the luxury rooms provide a comfortable stay. I chose this hotel for my business trip, and they offered a fair price, which I truly appreciated.", roomId: 5 },
-  { name: "Anushree Creation", review: "I had my business trip to coimbatore and me my staff's stayed here in this hotel. Very nice and safe for all type of travelers. Staffing and even Owner is very friendly with great hospitality.", roomId: 6 },
-  { name: "Anushree Creation", review: "I had my business trip to coimbatore and me my staff's stayed here in this hotel. Very nice and safe for all type of travelers. Staffing and even Owner is very friendly with great hospitality.", roomId: 6 },
-  { name: "Ram Krishna", review: "Room was spacious for a family . Service was good. Located very near to Gandipuram main bus station. Breakfast was good. Nice stay with affordable price.", roomId: 5 },
-  { name: "Ravi", review: "Very nice and clean hotel, a best place to stay with family. Nice staffing and value for what we pay.", roomId: 4 },
-  { name: "Joseph Paul", review: "Very nice property and good service by the hotel staff. Friendly atmosphere", roomId: 3 },
-  { name: "Vijay Seenivasan", review: "Fantastic place to stay and staffs are very comfortable and supportive.", roomId: 2 },
-  { name: "SAJEESH KV", review: "Good spacious rooms and well maintained.", roomId: 1 },
-  { name: "Joseph Paul", review: "Very nice property and good service by the hotel staff. Friendly atmosphere", roomId: 8 },
-  { name: "Vijay Seenivasan", review: "Fantastic place to stay and staffs are very comfortable and supportive.", roomId: 8 },
-  { name: "SAJEESH KV", review: "Good spacious rooms and well maintained.", roomId: 8 },
+  { name: "Anushree Creation", review: "I had my business trip to coimbatore and me my staff's stayed here in this hotel. Very nice and safe for all type of travelers. Staffing and even Owner is very friendly with great hospitality.", roomId:"executive-economy-deluxe-room-single" },
+  { name: "Ram Krishna", review: "Room was spacious for a family . Service was good. Located very near to Gandipuram main bus station. Breakfast was good. Nice stay with affordable price.", roomId: "executive-economy-deluxe-room-double" },
+  { name: "Ravi", review: "Very nice and clean hotel, a best place to stay with family. Nice staffing and value for what we pay.",roomId: "executive-economy-deluxe-room-double-extra-person", },
+  { name: "Sahupramodkumar Sipu", review: "Very nice properly, well maintained, nice location.good staff.I enjoyed my stay here thanks.", roomId:"executive-economy-deluxe-room-single" },
+  { name: "Joseph Paul", review: "Very nice property and good service by the hotel staff. Friendly atmosphere", roomId: "family-suite-room-single" },
+  { name: "Roshan Dabbi", review: "I stayed 2 days .The stay was very quite and lavish.They were maintained rooms very clean and neat .The stay was worthy and comfortable.", roomId: "family-suite-room-double" },
+  { name: "Sahupramodkumar Sipu", review: "Very nice properly, well maintained, nice location.good staff.I enjoyed my stay here thanks.", roomId: "family-suite-room-triple-extra-person" },
+  { name: "Joseph Paul", review: "Very nice property and good service by the hotel staff. Friendly atmosphere", roomId: "family-suite-room-triple-extra-person" },
+  { name: "Roshan Dabbi", review: "I stayed 2 days .The stay was very quite and lavish.They were maintained rooms very clean and neat .The stay was worthy and comfortable.", roomId: "family-suite-room-triple-extra-person" },
+  { name: "Vijay Seenivasan", review: "Fantastic place to stay and staffs are very comfortable and supportive.", roomId: "family-suite-room-triple" },
+  { name: "SAJEESH KV", review: "Good spacious rooms and well maintained.", roomId: "executive-economy-deluxe-room-double" },
+  { name: "Bala chandar", review: "Property was clean and well maintained. Staffs are very friendly. Highly recommend the stay here.",roomId: "executive-economy-deluxe-room-double-extra-person", },
+  { name: "Sharmadha Gautam", review: "Best place to stay .. It is a new hotel with comfortable , spacious and with a luxurious looks..very cleanly maintained and excellent service..very quite calming place in the centre of the city close to gandhipuram bus stand just 1 km away.", roomId: "family-suite-room-single" },
+  { name: "Soundar Rajan", review: "I had a great experience at Hotel Harikrishna Park. The ambience is excellent, and the luxury rooms provide a comfortable stay. I chose this hotel for my business trip, and they offered a fair price, which I truly appreciated.", roomId: "family-suite-room-double" },
+  { name: "Anushree Creation", review: "I had my business trip to coimbatore and me my staff's stayed here in this hotel. Very nice and safe for all type of travelers. Staffing and even Owner is very friendly with great hospitality.", roomId: "family-suite-room-triple" },
+  { name: "Anushree Creation", review: "I had my business trip to coimbatore and me my staff's stayed here in this hotel. Very nice and safe for all type of travelers. Staffing and even Owner is very friendly with great hospitality.", roomId: "family-suite-room-triple" },
+  { name: "Ram Krishna", review: "Room was spacious for a family . Service was good. Located very near to Gandipuram main bus station. Breakfast was good. Nice stay with affordable price.", roomId: "family-suite-room-double" },
+  { name: "Ravi", review: "Very nice and clean hotel, a best place to stay with family. Nice staffing and value for what we pay.", roomId: "family-suite-room-single" },
+  { name: "Joseph Paul", review: "Very nice property and good service by the hotel staff. Friendly atmosphere",roomId: "executive-economy-deluxe-room-double-extra-person", },
+  { name: "Vijay Seenivasan", review: "Fantastic place to stay and staffs are very comfortable and supportive.", roomId: "executive-economy-deluxe-room-double" },
+  { name: "SAJEESH KV", review: "Good spacious rooms and well maintained.", roomId:"executive-economy-deluxe-room-single" },
+  { name: "Joseph Paul", review: "Very nice property and good service by the hotel staff. Friendly atmosphere", roomId: "family-suite-connecting-room" },
+  { name: "Vijay Seenivasan", review: "Fantastic place to stay and staffs are very comfortable and supportive.", roomId: "family-suite-connecting-room" },
+  { name: "SAJEESH KV", review: "Good spacious rooms and well maintained.", roomId: "family-suite-connecting-room" },
 ];
 
 const faqs = [
   // Common FAQs for all rooms
-  { question: "What is the check-in and check-out time?", answer: "Check-in and check-out every 24 hours.", roomId: 1 },
-  { question: "Do you provide airport pick-up services?", answer: "No, we provide  pick-up services.", roomId: 1 },
-  { question: "Are pets allowed?", answer: "Unfortunately, we do not allow pets in the hotel.", roomId: 1 },
+  { question: "What is the check-in and check-out time?", answer: "Check-in and check-out every 24 hours.", roomId:"executive-economy-deluxe-room-single" },
+  { question: "Do you provide airport pick-up services?", answer: "No, we provide  pick-up services.", roomId:"executive-economy-deluxe-room-single" },
+  { question: "Are pets allowed?", answer: "Unfortunately, we do not allow pets in the hotel.", roomId:"executive-economy-deluxe-room-single" },
 
-  { question: "What is the check-in and check-out time?", answer: "Check-in and check-out every 24 hours.", roomId: 2 },
-  { question: "Do you provide airport pick-up services?", answer: "No, we provide  pick-up services.", roomId: 2 },
-  { question: "Are pets allowed?", answer: "Unfortunately, we do not allow pets in the hotel.", roomId: 2 },
+  { question: "What is the check-in and check-out time?", answer: "Check-in and check-out every 24 hours.", roomId: "executive-economy-deluxe-room-double" },
+  { question: "Do you provide airport pick-up services?", answer: "No, we provide  pick-up services.", roomId: "executive-economy-deluxe-room-double" },
+  { question: "Are pets allowed?", answer: "Unfortunately, we do not allow pets in the hotel.", roomId: "executive-economy-deluxe-room-double" },
 
-  { question: "What is the check-in and check-out time?", answer: "Check-in and check-out every 24 hours.", roomId: 3 },
-  { question: "Do you provide airport pick-up services?", answer: "No, we provide  pick-up services.", roomId: 3 },
-  { question: "Are pets allowed?", answer: "Unfortunately, we do not allow pets in the hotel.", roomId: 3 },
+  { question: "What is the check-in and check-out time?", answer: "Check-in and check-out every 24 hours.",roomId: "executive-economy-deluxe-room-double-extra-person", },
+  { question: "Do you provide airport pick-up services?", answer: "No, we provide  pick-up services.",roomId: "executive-economy-deluxe-room-double-extra-person", },
+  { question: "Are pets allowed?", answer: "Unfortunately, we do not allow pets in the hotel.",roomId: "executive-economy-deluxe-room-double-extra-person", },
 
-  { question: "What is the check-in and check-out time?", answer: "Check-in and check-out every 24hours.", roomId: 4 },
-  { question: "Do you provide airport pick-up services?", answer: "No, we provide airport pick-up and drop services upon request.", roomId: 4 },
-  { question: "Are pets allowed?", answer: "Unfortunately, we do not allow pets in the hotel.", roomId: 4 },
+  { question: "What is the check-in and check-out time?", answer: "Check-in and check-out every 24hours.", roomId: "family-suite-room-single" },
+  { question: "Do you provide airport pick-up services?", answer: "No, we provide airport pick-up and drop services upon request.", roomId: "family-suite-room-single" },
+  { question: "Are pets allowed?", answer: "Unfortunately, we do not allow pets in the hotel.", roomId: "family-suite-room-single" },
 
-  { question: "What is the check-in and check-out time?", answer: "Check-in and check-out every 24 hours.", roomId: 5 },
-  { question: "Do you provide airport pick-up services?", answer: "No, we provide  pick-up services.", roomId: 5 },
-  { question: "Are pets allowed?", answer: "Unfortunately, we do not allow pets in the hotel.", roomId: 5 },
+  { question: "What is the check-in and check-out time?", answer: "Check-in and check-out every 24 hours.", roomId: "family-suite-room-double" },
+  { question: "Do you provide airport pick-up services?", answer: "No, we provide  pick-up services.", roomId: "family-suite-room-double" },
+  { question: "Are pets allowed?", answer: "Unfortunately, we do not allow pets in the hotel.", roomId: "family-suite-room-double" },
 
-  { question: "What is the check-in and check-out time?", answer: "Check-in and check-out every 24 hours.", roomId: 6 },
-  { question: "Do you provide airport pick-up services?", answer: "No, we provide  pick-up services.", roomId: 6 },
-  { question: "Are pets allowed?", answer: "Unfortunately, we do not allow pets in the hotel.", roomId: 6 },
+  { question: "What is the check-in and check-out time?", answer: "Check-in and check-out every 24 hours.", roomId: "family-suite-room-triple" },
+  { question: "Do you provide airport pick-up services?", answer: "No, we provide  pick-up services.", roomId: "family-suite-room-triple" },
+  { question: "Are pets allowed?", answer: "Unfortunately, we do not allow pets in the hotel.", roomId: "family-suite-room-triple" },
 
-  { question: "What is the check-in and check-out time?", answer: "Check-in and check-out every 24 hours.", roomId: 7 },
-  { question: "Do you provide airport pick-up services?", answer: "No, we provide  pick-up services.", roomId: 7 },
-  { question: "Are pets allowed?", answer: "Unfortunately, we do not allow pets in the hotel.", roomId: 7 },
+  { question: "What is the check-in and check-out time?", answer: "Check-in and check-out every 24 hours.", roomId: "family-suite-room-triple-extra-person" },
+  { question: "Do you provide airport pick-up services?", answer: "No, we provide  pick-up services.", roomId: "family-suite-room-triple-extra-person" },
+  { question: "Are pets allowed?", answer: "Unfortunately, we do not allow pets in the hotel.", roomId: "family-suite-room-triple-extra-person" },
 
-  { question: "What is the check-in and check-out time?", answer: "Check-in and check-out every 24 hours.", roomId: 8 },
-  { question: "Do you provide airport pick-up services?", answer: "No, we provide  pick-up services.", roomId: 8 },
-  { question: "Are pets allowed?", answer: "Unfortunately, we do not allow pets in the hotel.", roomId: 8 },
+  { question: "What is the check-in and check-out time?", answer: "Check-in and check-out every 24 hours.", roomId: "family-suite-connecting-room" },
+  { question: "Do you provide airport pick-up services?", answer: "No, we provide  pick-up services.", roomId: "family-suite-connecting-room" },
+  { question: "Are pets allowed?", answer: "Unfortunately, we do not allow pets in the hotel.", roomId: "family-suite-connecting-room" },
 
   // Executive Economy - Deluxe Room (Room 1, 4, 6)
-  { question: "What amenities are included in this room?", answer: "This room includes air conditioning, free Wi-Fi, a cozy bed, a private bathroom, a work desk, and a TV.", roomId: 1 },
-  { question: "Is breakfast included with the stay?", answer: "Breakfast is available upon request at an additional charge.", roomId: 1 },
-  { question: "Does the room have a balcony?", answer: "No, the Executive Economy - Deluxe Room does not include a balcony.", roomId: 1 },
+  { question: "What amenities are included in this room?", answer: "This room includes air conditioning, free Wi-Fi, a cozy bed, a private bathroom, a work desk, and a TV.", roomId:"executive-economy-deluxe-room-single" },
+  { question: "Is breakfast included with the stay?", answer: "Breakfast is available upon request at an additional charge.", roomId:"executive-economy-deluxe-room-single" },
+  { question: "Does the room have a balcony?", answer: "No, the Executive Economy - Deluxe Room does not include a balcony.", roomId:"executive-economy-deluxe-room-single" },
 
-  { question: "What amenities are included in this room?", answer: "This room includes air conditioning, free Wi-Fi, a cozy bed, a private bathroom, a work desk, and a TV.", roomId: 4 },
-  { question: "Is breakfast included with the stay?", answer: "Breakfast is available upon request at an additional charge.", roomId: 4 },
-  { question: "Is room service available 24/7?", answer: "Yes, we offer 24/7 room service for your convenience.", roomId: 4 },
+  { question: "What amenities are included in this room?", answer: "This room includes air conditioning, free Wi-Fi, a cozy bed, a private bathroom, a work desk, and a TV.", roomId: "family-suite-room-single" },
+  { question: "Is breakfast included with the stay?", answer: "Breakfast is available upon request at an additional charge.", roomId: "family-suite-room-single" },
+  { question: "Is room service available 24/7?", answer: "Yes, we offer 24/7 room service for your convenience.", roomId: "family-suite-room-single" },
 
-  { question: "What amenities are included in this room?", answer: "This room includes air conditioning, free Wi-Fi, a cozy bed, a private bathroom, a work desk, and a TV.", roomId: 6 },
-  { question: "Is breakfast included with the stay?", answer: "Breakfast is available upon request at an additional charge.", roomId: 6 },
-  { question: "Is room service available 24/7?", answer: "Yes, we offer 24/7 room service for your convenience.", roomId: 6 },
+  { question: "What amenities are included in this room?", answer: "This room includes air conditioning, free Wi-Fi, a cozy bed, a private bathroom, a work desk, and a TV.", roomId: "family-suite-room-triple" },
+  { question: "Is breakfast included with the stay?", answer: "Breakfast is available upon request at an additional charge.", roomId: "family-suite-room-triple" },
+  { question: "Is room service available 24/7?", answer: "Yes, we offer 24/7 room service for your convenience.", roomId: "family-suite-room-triple" },
 
   // Family Suite Room (Room 2, 5)
-  { question: "What amenities are included in this room?", answer: "This room features an air-conditioned hall and bedroom, a private bathroom, a cozy bed, free Wi-Fi, a work desk, and a TV.", roomId: 2 },
-  { question: "Can extra beds be added to the Family Suite Room?", answer: "Yes, we provide extra beds upon request for an additional charge.", roomId: 2 },
-  { question: "Does the Family Suite Room have a dining area?", answer: "Yes, the suite includes a small dining area in the hall space.", roomId: 2 },
+  { question: "What amenities are included in this room?", answer: "This room features an air-conditioned hall and bedroom, a private bathroom, a cozy bed, free Wi-Fi, a work desk, and a TV.", roomId: "executive-economy-deluxe-room-double" },
+  { question: "Can extra beds be added to the Family Suite Room?", answer: "Yes, we provide extra beds upon request for an additional charge.", roomId: "executive-economy-deluxe-room-double" },
+  { question: "Does the Family Suite Room have a dining area?", answer: "Yes, the suite includes a small dining area in the hall space.", roomId: "executive-economy-deluxe-room-double" },
 
-  { question: "What amenities are included in this room?", answer: "This room features an air-conditioned hall and bedroom, a private bathroom, a cozy bed, free Wi-Fi, a work desk, and a TV.", roomId: 5 },
-  { question: "Can extra beds be added to the Family Suite Room?", answer: "Yes, we provide extra beds upon request for an additional charge.", roomId: 5 },
-  { question: "Does the Family Suite Room have a dining area?", answer: "No, the suite have a dining area.", roomId: 5 },
+  { question: "What amenities are included in this room?", answer: "This room features an air-conditioned hall and bedroom, a private bathroom, a cozy bed, free Wi-Fi, a work desk, and a TV.", roomId: "family-suite-room-double" },
+  { question: "Can extra beds be added to the Family Suite Room?", answer: "Yes, we provide extra beds upon request for an additional charge.", roomId: "family-suite-room-double" },
+  { question: "Does the Family Suite Room have a dining area?", answer: "No, the suite have a dining area.", roomId: "family-suite-room-double" },
 
   // Family Suite - Connecting Room (Room 3)
-  { question: "What amenities are included in this room?", answer: "This room combines the Executive Economy and Family Suite, offering air conditioning, a private bathrooms, a cozy bed, a work desk, free Wi-Fi, and a TV.", roomId: 3 },
-  { question: "How many guests can stay in the Family Suite - Connecting Room?", answer: "This room is ideal for large families and can accommodate up to 6 guests.", roomId: 3 },
-  { question: "Is there a shared living space between the two connected rooms?", answer: "Yes, the connecting room has a shared living area for guests to relax.", roomId: 3 },
+  { question: "What amenities are included in this room?", answer: "This room combines the Executive Economy and Family Suite, offering air conditioning, a private bathrooms, a cozy bed, a work desk, free Wi-Fi, and a TV.",roomId: "executive-economy-deluxe-room-double-extra-person", },
+  { question: "How many guests can stay in the Family Suite - Connecting Room?", answer: "This room is ideal for large families and can accommodate up to 6 guests.",roomId: "executive-economy-deluxe-room-double-extra-person", },
+  { question: "Is there a shared living space between the two connected rooms?", answer: "Yes, the connecting room has a shared living area for guests to relax.",roomId: "executive-economy-deluxe-room-double-extra-person", },
 
-  { question: "Is there a shared living space between the two connected rooms?", answer: "Yes, the connecting room has a shared living area for guests to relax.", roomId: 7 },
-  { question: "Does the Family Suite Room have a dining area?", answer: "No, the suite have a dining area.", roomId: 7 },
-  { question: "Can extra beds be added to the Family Suite Room?", answer: "Yes, we provide extra beds upon request for an additional charge.", roomId: 7 },
+  { question: "Is there a shared living space between the two connected rooms?", answer: "Yes, the connecting room has a shared living area for guests to relax.", roomId: "family-suite-room-triple-extra-person" },
+  { question: "Does the Family Suite Room have a dining area?", answer: "No, the suite have a dining area.", roomId: "family-suite-room-triple-extra-person" },
+  { question: "Can extra beds be added to the Family Suite Room?", answer: "Yes, we provide extra beds upon request for an additional charge.", roomId: "family-suite-room-triple-extra-person" },
 
-  { question: "What amenities are included in this room?", answer: "This room features an air-conditioned hall and bedroom, a private bathroom, a cozy bed, free Wi-Fi, a work desk, and a TV.", roomId: 8 },
-  { question: "Is room service available 24/7?", answer: "Yes, we offer 24/7 room service for your convenience.", roomId: 8 },
-  { question: "Does the Family Suite Room have a dining area?", answer: "No, the suite have a dining area.", roomId: 8 },
+  { question: "What amenities are included in this room?", answer: "This room features an air-conditioned hall and bedroom, a private bathroom, a cozy bed, free Wi-Fi, a work desk, and a TV.", roomId: "family-suite-connecting-room" },
+  { question: "Is room service available 24/7?", answer: "Yes, we offer 24/7 room service for your convenience.", roomId: "family-suite-connecting-room" },
+  { question: "Does the Family Suite Room have a dining area?", answer: "No, the suite have a dining area.", roomId: "family-suite-connecting-room" },
 
 ];
 
@@ -269,19 +270,19 @@ export default function RoomDetail() {
     setIsOpen(true);
   };
 
-  const roomTestimonials = useMemo(() => testimonials.filter((t) => t.roomId === Number(room?.id)), [room]);
-  const roomFaqs = useMemo(() => faqs.filter((f) => f.roomId === Number(room?.id)), [room]);
+  const roomTestimonials = useMemo(() => testimonials.filter((t) => t.roomId === (room?.id)), [room]);
+  const roomFaqs = useMemo(() => faqs.filter((f) => f.roomId === (room?.id)), [room]);
 
   if (!room) return <h2 className="text-center mt-10">Room not found</h2>;
 
   return (
+    <>
+    <HotelSchema /> 
     <div>
       <Helmet>
-        <title>{room.name} - Hotel Harikrishna Park</title>
-        <meta
-          name="description"
-          content={`Stay in the ${room.name} at Hotel Harikrishna Park. ${room.description.slice(0, 150)}...`}
-        />
+        <title>{room ? `${room.name} - Hotel Harikrishna Park` : 'Room Details - Hotel Harikrishna Park'}</title>
+        <meta name="description" content={room ? room.description : 'Room details at Hotel Harikrishna Park.'} />
+        <link rel="canonical" href={`https://harikrishnapark.in/room/${id}`} />
       </Helmet>
 
       {/* Fullscreen Image Viewer */}
@@ -379,5 +380,6 @@ export default function RoomDetail() {
         </div>
       </section>
     </div>
+    </>
   );
 }

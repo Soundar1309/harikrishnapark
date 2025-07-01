@@ -1,9 +1,11 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-
+import HotelSchema from "../components/HotelSchema";  
 
 const RefundCancellationPolicy = () => {
   return (
+    <>
+    <HotelSchema />
     <div className="bg-white text-black px-6 lg:mt-24 md:mt-20 sm:mt-10 pt-20 pb-12 max-w-4xl mx-auto">
       <Helmet>
         <title>Refund & Cancellation - Hotel Harikrishna Park</title>
@@ -46,6 +48,7 @@ const RefundCancellationPolicy = () => {
         </ul>
       </section>
     </div>
+    </>
   );
 };
 

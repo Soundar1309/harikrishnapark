@@ -19,11 +19,10 @@ import room1 from "../assets/img/rooms/1.jpg";
 import room2 from "../assets/img/rooms/1dt1.jpg";
 import room3 from "../assets/img/rooms/2dts.jpg";
 
-import { Helmet } from "react-helmet";
 
 const rooms = [
   {
-    id: 2,
+    id: "executive-economy-deluxe-room-double",
     name: "Executive Economy - (Deluxue)",
     image: room2,
     occupancy: "Double",
@@ -32,7 +31,7 @@ const rooms = [
     facilities: [FaBed, FaWifi, FaParking],
   },
   {
-    id: 6,
+    id: "family-suite-room-triple",
     name: "Family Suite Room",
     image: room1,
     occupancy: "Triple",
@@ -41,7 +40,7 @@ const rooms = [
     facilities: [FaWifi, FaBed, FaConciergeBell],
   },
   {
-    id: 8,
+    id: "family-suite-connecting-room",
     name: "Family Suite (Connecting Room )",
     image: room3,
     occupancy: "Family & Friends",
@@ -65,10 +64,6 @@ export default function Home() {
 
   return (
     <div className="bg-white text-[#361617] font-sans mt-16 w-full overflow-x-hidden">
-      <Helmet>
-        <title>Home - Hotel Harikrishna Park</title>
-        <meta name="description" content="Welcome to Hotel Harikrishna Park in Coimbatore." />
-      </Helmet>
       {/* Hero Section */}
       <section
         className="relative min-h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] flex items-center justify-center bg-cover bg-center px-4 sm:px-6 md:px-10"

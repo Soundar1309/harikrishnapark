@@ -3,7 +3,8 @@ import { NavLink } from "react-router-dom";
 import Logo from "../assets/img/logo.jpg";
 import { useBooking } from "../components/BookingContext";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";   
+import HotelSchema from "../components/HotelSchema";
 
 const Header = () => {
   const { setIsOpen } = useBooking();
@@ -21,6 +22,8 @@ const Header = () => {
   };
 
   return (
+    <>
+    <HotelSchema />
     <header className="bg-white shadow-md p-2 xs:p-3 sm:p-4 fixed w-full top-0 z-50">
       <div className="container mx-auto flex justify-between items-center px-2 xs:px-3 sm:px-6 md:px-10">
         
@@ -125,6 +128,7 @@ const Header = () => {
         )}
       </AnimatePresence>
     </header>
+    </>
   );
 };
 

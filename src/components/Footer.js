@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaHotel, FaBed, FaEnvelope, FaPhoneAlt, FaMap } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaHotel, FaBed, FaEnvelope, FaPhoneAlt, FaMap, FaPercentage } from "react-icons/fa";
 import { IoMdContact } from "react-icons/io";
 import { MdOutlineRoomService } from "react-icons/md";
 import Logo from '../assets/img/logo.jpg'
@@ -84,7 +84,7 @@ export default function Footer() {
             <FaPhoneAlt className="text-white" /> 0422 4724341
           </p>
           <p className="mt-2 text-[#f8d09c] text-[13px] flex items-center gap-1">
-            <FaEnvelope className="text-white text-sm"/> harikrishnaparkreservation@gmail.com
+            <FaEnvelope className="text-white text-sm"/>harikrishnaparkreservation@gmail.com
           </p>
           <p className="mt-2 text-[#f8d09c] text-md flex items-center gap-2">
             <FaMap className="text-white text-6xl"/>OPP.GOVT GIRLS HIGH SCHOOL, WATER TANK ROAD, NEW SIDDAPUDHUR, Coimbatore-44 , Tamil Nadu, India.
